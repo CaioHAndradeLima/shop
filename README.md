@@ -256,3 +256,70 @@ jobs:
 3. Sync Gradle
 4. Run on emulator or device
 
+---
+
+## Local-first pattern
+
+This project adopts a local-first strategy for observing data, combined with a background remote refresh.
+The main goal is to minimize perceived loading time and provide an immediate UI response, even when network conditions are poor.
+Instead of waiting for a remote request to complete, the UI always observes local data first (Room).
+Remote data is fetched in parallel and persisted locally when available.
+This approach provides:
+
+1. Faster first render
+2. Offline support
+3. Smoother UI state transitions
+4. Reduced loading states for returning users
+
+
+<b>How it works</b>
+
+The repository exposes a Flow backed by the local database.
+When collection starts, a remote request is triggered in the background to refresh local data.
+
+<details>
+<summary><b>Local-first repository implementation</b></summary>
+
+```kotlin
+override fun observeShops(): Flow<List<Shop>> = localDataSource
+    .observeShops()
+        .map { entities -> entities.map { it.toDomain() } }
+        .onStart {
+            applicationScope.launch {
+                val result = callApi {
+                    remoteDataSource.getShops()
+                }
+
+                result.getOrNull()?.takeIf { it.isNotEmpty() }?.let { shops ->
+                    localDataSource.updateShops(
+                        shops.map { it.toEntity() }
+                    )
+                }
+            }
+        }.distinctUntilChanged()
+```
+</details>
+
+<b>With this design, the UI:</b>
+
+* Immediately displays cached data
+* Automatically updates when fresh data arrives
+* Avoids unnecessary loading indicators
+* Remains resilient to network failures
+
+## Next steps and possible improvements
+  This project is intentionally kept focused, but there are several improvements planned as next steps:
+  
+  * Update dependencies: Keep Gradle, Kotlin, Compose, and AndroidX libraries aligned with the latest stable versions.
+  * Reduce experimental annotations
+  * Increase test coverage adding more edge-case tests for repositories
+  * Expand UI tests for error and configuration scenarios
+  * Improve coverage for navigation and state restoration
+  * Performance and UX refinements improving image loading strategies
+  * Add paging support if data grows
+  * Introduce animation polish for transitions
+
+Source code
+The complete source code is available on GitHub:
+Repository:
+https://github.com/CaioHAndradeLima/shop
