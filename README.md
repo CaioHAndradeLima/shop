@@ -24,20 +24,15 @@ The app runs on **Android emulators and physical devices** without additional se
 
 ---
 
-## Screenshots & Demo
-
-<!-- Replace the placeholders below with your real assets -->
-
 ### Screenshots
+
+
 <p float="left">
-  <img src="docs/screenshot_list.png" width="250" />
-  <img src="docs/screenshot_details.png" width="250" />
+  
+<img width="216" height="480" alt="Screenshot_20251214_214301" src="https://github.com/user-attachments/assets/28796c1d-a948-4dba-badd-2c7bc9e41d51" />
+<img width="216" height="480" alt="Screenshot_20251214_214315" src="https://github.com/user-attachments/assets/37c77ec1-08ce-4208-94da-7282c06fa907" />
+
 </p>
-
-### Demo Video
-🎥 [Watch short demo video](docs/demo.mp4)
-
----
 
 ## Architecture
 
