@@ -322,6 +322,7 @@ override fun observeShops(): Flow<List<Shop>> = localDataSource
   * Add paging support if data grows
   * Introduce animation polish for transitions
   * Fix warnings in gradle build output
+  * Fix Jacoco Coverage Badges adding per module
 
 
 Source code
