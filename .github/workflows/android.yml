@@ -35,6 +35,7 @@ jobs:
 
       - name: Generate Coverage Badge
         uses: cicirello/jacoco-badge-generator@v2
+        continue-on-error: true
         with:
           generate-branches-badges: false
           jacoco-csv-file: app/build/reports/jacoco/testDebugUnitTestCoverage.csv
@@ -43,6 +44,7 @@ jobs:
 
       - name: Upload badge to GitHub
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: coverage-badge
           path: .github/badges/jacoco.svg
