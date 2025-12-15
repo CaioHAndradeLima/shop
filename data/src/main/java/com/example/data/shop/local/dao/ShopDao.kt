@@ -8,7 +8,7 @@ import com.example.data.shop.local.entity.ShopEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-internal sealed interface ShopDao {
+internal interface ShopDao {
 
     @Query("SELECT * FROM shops")
     fun observeShops(): Flow<List<ShopEntity>>
