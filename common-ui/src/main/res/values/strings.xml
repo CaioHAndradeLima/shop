@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shop_image_accessibility">shop picture</string>
+    <string name="try_again_message">please, try again after some time</string>
+    <string name="try_again_button">Try again</string>
+</resources>

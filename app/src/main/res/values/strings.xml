@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Shop</string>
+    <string name="shop_detail_title">shop</string>
+    <string name="back">back</string>
+    <string name="height">Height: %s</string>
+    <string name="weight">Weight: %s</string>
+    <string name="specie">Specie: %s</string>
+    <string name="base_experience">Base experience: %s</string>
+    <string name="movements">Known movements</string>
+
+</resources>
