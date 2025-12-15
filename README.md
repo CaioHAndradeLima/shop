@@ -227,7 +227,7 @@ jobs:
           overwrite: true
 
   ui-tests:
-    name: Run Espresso Tests
+    name: Run UI Tests
     runs-on: ubuntu-latest
     steps:
       - name: checkout
