@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     alias(libs.plugins.hilt.android)
 }
+apply(from = rootProject.file("gradle/jacoco.gradle"))
 
 android {
     namespace = "com.example.common_ui"

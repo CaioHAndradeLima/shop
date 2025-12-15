@@ -5,6 +5,9 @@ A modern Android application built with **Clean Architecture**, **Jetpack Compos
 
 This project was designed to be **easy to understand, easy to test, and easy to extend**, following current Android best practices.
 
+[![Shop](https://github.com/CaioHAndradeLima/shop/actions/workflows/android.yml/badge.svg)](https://github.com/CaioHAndradeLima/shop/actions/workflows/android.yml)
+![Coverage](.github/badges/jacoco.svg)
+
 ---
 
 ## Overview
@@ -318,6 +321,8 @@ override fun observeShops(): Flow<List<Shop>> = localDataSource
   * Performance and UX refinements improving image loading strategies
   * Add paging support if data grows
   * Introduce animation polish for transitions
+  * Fix warnings in gradle build output
+
 
 Source code
 The complete source code is available on GitHub:
